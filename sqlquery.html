@@ -20,6 +20,7 @@
     <h1>DBMS Tasks</h1>
     
     <p>Jump to sections: 
+        <a href="#table">Table</a><br>
         <a href="#func">SQL Functions</a><br>
         <a href="#aggregate">SQL Aggregate Functions, Group by clause, Having</a><br>
         <a href="#nest">Implement Queries on Nested Queries</a><br>
@@ -1076,6 +1077,38 @@ END;
             END;
             /
             
+        </textarea>
+    </p>
+
+      <p id="table">Create and Insert values<br>
+        <textarea>
+            CREATE TABLE employees (
+                emp_id NUMBER PRIMARY KEY,
+                emp_name VARCHAR2(100),
+                job_title VARCHAR2(50),
+                dept_no NUMBER,
+                emp_salary NUMBER,
+                hire_date DATE,
+                commission NUMBER
+            );
+            </textarea>
+
+
+           <textarea> INSERT INTO employees (emp_id, emp_name, job_title, dept_no, emp_salary, hire_date, commission)
+VALUES (1, 'John Doe', 'Manager', 10, 5000, TO_DATE('2022-05-15', 'YYYY-MM-DD'), 500);
+
+INSERT INTO employees (emp_id, emp_name, job_title, dept_no, emp_salary, hire_date, commission)
+VALUES (2, 'Jane Smith', 'Clerk', 20, 3000, TO_DATE('2023-03-10', 'YYYY-MM-DD'), NULL);
+
+INSERT INTO employees (emp_id, emp_name, job_title, dept_no, emp_salary, hire_date, commission)
+VALUES (3, 'Michael Brown', 'Salesman', 30, 4000, TO_DATE('2021-11-25', 'YYYY-MM-DD'), 700);
+
+INSERT INTO employees (emp_id, emp_name, job_title, dept_no, emp_salary, hire_date, commission)
+VALUES (4, 'Emily Davis', 'Analyst', 20, 6000, TO_DATE('2022-09-18', 'YYYY-MM-DD'), NULL);
+
+INSERT INTO employees (emp_id, emp_name, job_title, dept_no, emp_salary, hire_date, commission)
+VALUES (5, 'Robert Wilson', 'Manager', 30, 5500, TO_DATE('2021-01-05', 'YYYY-MM-DD'), 1000);
+
         </textarea>
     </p>
   </div>
