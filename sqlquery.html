@@ -37,6 +37,7 @@
         <a href="#cursor">Purpose of cursors</a><br>
         <a href="#view3">Implement queries on views3</a><br>
         <a href="#nest4">Implement Queries on Nested Queries4</a>
+        <a href="correct">corrected</a>
 
     </p>
     </div>
@@ -1122,6 +1123,49 @@ VALUES (5, 'Robert Wilson', 'Manager', 30, 5500, TO_DATE('2021-01-05', 'YYYY-MM-
 
         </textarea>
     </p>
+      <h3 id="correct">Cursor and Annual salary</h3>
+      <p>Cursor</p><br>
+      <textarea>
+          DECLARE
+   CURSOR emp_cursor IS
+      SELECT emp_id, emp_name, salary FROM employees11;
+   v_emp_id employees11.emp_id%TYPE;
+   v_emp_name employees11.emp_name%TYPE;
+   v_salary employees11.salary%TYPE;
+BEGIN
+   OPEN emp_cursor;
+   LOOP
+      FETCH emp_cursor INTO v_emp_id, v_emp_name, v_salary;
+      EXIT WHEN emp_cursor%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE('id: ' || v_emp_id || ', name: ' || v_emp_name || ', salary: ' || v_salary);
+   END LOOP;
+   CLOSE emp_cursor;
+END;
+/
+      </textarea>
+       <p>Annual Salary</p><br>
+      <textarea>
+          DECLARE
+ annual_salary NUMBER;
+BEGIN
+ calc_annual_salary(101, annual_salary);
+ DBMS_OUTPUT.PUT_LINE('Annual Salary: ' || annual_salary);
+END;
+/
+      </textarea>
+      <textarea>
+          -- Create a sample table
+CREATE TABLE EMPLOYEES11 (
+EMP_ID NUMBER,
+EMP_NAME VARCHAR2(50),
+SALARY NUMBER
+);
+-- Insert sample data
+INSERT INTO EMPLOYEES11 VALUES (101, 'Alice', 50000);
+INSERT INTO EMPLOYEES11 VALUES (102, 'Bob', 60000);
+INSERT INTO EMPLOYEES11 VALUES (103, 'Charlie', 55000);
+COMMIT;
+      </textarea>
   </div>
 
 
